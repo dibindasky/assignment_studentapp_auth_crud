@@ -1,6 +1,7 @@
 import 'package:assignment_wandoor_kayla/application/business_logic/auth/auth_bloc.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/routes/route_generator.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/routes/routes.dart';
+import 'package:assignment_wandoor_kayla/data/services/auth/auth.dart';
 import 'package:assignment_wandoor_kayla/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class AppRoot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (ctx) => AuthBloc())],
+      providers: [BlocProvider(create: (ctx) => AuthBloc(AuthService()))],
       child: MaterialApp(
         theme: ThemeData(
           primarySwatch: Colors.blue,

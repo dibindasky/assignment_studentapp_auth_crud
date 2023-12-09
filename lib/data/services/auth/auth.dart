@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:assignment_wandoor_kayla/domain/core/failure/failure.dart';
 import 'package:assignment_wandoor_kayla/domain/core/success/success.dart';
 import 'package:assignment_wandoor_kayla/domain/models/auth/auth_model.dart';
+import 'package:assignment_wandoor_kayla/domain/models/auth/otp_model.dart';
 import 'package:assignment_wandoor_kayla/domain/models/auth/phone_model.dart';
 import 'package:assignment_wandoor_kayla/domain/repositories/auth.dart';
 import 'package:dartz/dartz.dart';
@@ -10,7 +11,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthService implements AuthRepo {
-  
   @override
   Future<Either<Failure, UserCredential>> signInWithGoogle() async {
     try {
@@ -85,6 +85,19 @@ class AuthService implements AuthRepo {
       }
     } catch (e) {
       return Left(Failure(message: 'failed to send otp'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, Success>> verifyOtp(
+      String verificationId, OtpModel otpModel) async {
+    try {
+      PhoneAuthCredential credential = PhoneAuthProvider.credential(
+          verificationId: verificationId, smsCode: otpModel.smsCode);
+      await FirebaseAuth.instance.signInWithCredential(credential);
+      return Right(Success(message: ''));
+    } catch (error) {
+      return Left(Failure(message: 'failed to verify otp'));
     }
   }
 }

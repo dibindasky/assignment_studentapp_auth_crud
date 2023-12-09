@@ -1,3 +1,7 @@
+import 'package:assignment_wandoor_kayla/domain/models/auth/auth_model.dart';
+import 'package:assignment_wandoor_kayla/domain/models/auth/otp_model.dart';
+import 'package:assignment_wandoor_kayla/domain/models/auth/phone_model.dart';
+import 'package:assignment_wandoor_kayla/domain/repositories/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -8,6 +12,8 @@ part 'auth_bloc.freezed.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
+  final AuthRepo authService;
+
   TextEditingController passwordController=TextEditingController();
   TextEditingController emailController=TextEditingController();
   TextEditingController passwordSignInController=TextEditingController();
@@ -15,17 +21,42 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   TextEditingController phoneController=TextEditingController();
   TextEditingController otpController=TextEditingController();
 
-  AuthBloc() : super(AuthState.initial()) {
+  AuthBloc(this.authService) : super(AuthState.initial()) {
     on<GetOtp>(getOtp);
+    on<VerifyOtp>(verifyOtp);
     on<SignIn>(signIn);
     on<SignUP>(signUp);
     on<GoogleSignIn>(googleSignIn);
-    on<GoogleSignUP>(googleSignUp);
   }
 
-  void getOtp(GetOtp event, Emitter<AuthState> emit) => print('object${event.hashCode}, $emit');
-  void signIn(SignIn event, Emitter<AuthState> emit) => print('object${event.hashCode}, $emit');
-  void signUp(SignUP event, Emitter<AuthState> emit) => print('object${event.hashCode}, $emit');
-  void googleSignIn(GoogleSignIn event, Emitter<AuthState> emit) => print('object${event.hashCode}, $emit');
-  void googleSignUp(GoogleSignUP event, Emitter<AuthState> emit) => print('object${event.hashCode}, $emit');
+  Future<void> getOtp(GetOtp event, Emitter<AuthState> emit) async {
+    emit(state.copyWith(hasError: false,isLoading: true));
+    final result = await authService.sendOtp(event.phoneModel);
+    result.fold((failure) => emit(state.copyWith(hasError: true,isLoading: false,message: failure.message)),
+     (success) => emit(state.copyWith(isLoading: false,message: success.message)));
+  }
+  Future<void> verifyOtp(VerifyOtp event, Emitter<AuthState> emit) async{
+    emit(state.copyWith(hasError: false,isLoading: true));
+    final result = await authService.verifyOtp(state.otpVerificationId!, event.otpModel);
+    result.fold((failure) => emit(state.copyWith(hasError: true,isLoading: false,message: failure.message,otpSuccess: false)),
+    (success) => emit(state.copyWith(otpSuccess: true,isLoading: false,message: success.message)));
+  }
+  Future<void> signIn(SignIn event, Emitter<AuthState> emit) async{
+    emit(state.copyWith(hasError: false,isLoading: true));
+    final result = await authService.signInWithEmail(login: event.authModel);
+    result.fold((failure) => emit(state.copyWith(hasError: true,isLoading: false,message: failure.message)),
+    (success) => emit(state.copyWith(signInSuccess: true,isLoading: false,message: 'user authentiacated successully')));
+  }
+  Future<void> signUp(SignUP event, Emitter<AuthState> emit) async{
+    emit(state.copyWith(hasError: false,isLoading: true));
+    final result = await authService.signUpWithEmail(signUp: event.authModel);
+    result.fold((failure) => emit(state.copyWith(hasError: true,isLoading: false,message: failure.message)),
+    (success) => emit(state.copyWith(signUpSuccess: true,isLoading: false,message: 'user authentiacated successully')));  
+  }
+  Future<void> googleSignIn(GoogleSignIn event, Emitter<AuthState> emit) async{
+    emit(state.copyWith(hasError: false,isLoading: true));
+    final result = await authService.signInWithGoogle();
+    result.fold((failure) => emit(state.copyWith(hasError: true,isLoading: false,message: failure.message)),
+    (success) => emit(state.copyWith(signInSuccess: true,isLoading: false,message: 'user authentiacated successully')));
+   }
 }

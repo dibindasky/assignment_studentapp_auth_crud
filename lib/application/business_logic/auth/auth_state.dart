@@ -10,7 +10,8 @@ class AuthState with _$AuthState {
       String? message,
       bool? otpSuccess,
       bool? signUpSuccess,
-      bool? signInSuccess}) = _Initial;
+      bool? signInSuccess,
+      String? otpVerificationId}) = _Initial;
 
   factory AuthState.initial() => const AuthState(isLoading: false, hasError: false);
 }
