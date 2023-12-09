@@ -1,10 +1,16 @@
 import 'package:assignment_wandoor_kayla/application/business_logic/auth/auth_bloc.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/routes/route_generator.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/routes/routes.dart';
+import 'package:assignment_wandoor_kayla/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const AppRoot());
 }
 

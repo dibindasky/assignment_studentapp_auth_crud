@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "472814168339",
+    "project_id": "assignmentwandoor",
+    "storage_bucket": "assignmentwandoor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472814168339:android:62c449a6d5f530011d92e6",
+        "android_client_info": {
+          "package_name": "com.example.assignment_wandoor_kayla"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "472814168339-abpbbc5apnlernk9brapga05f85617cq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmPsDRrlwue9mLHK81PuveU28fuqR3jMI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "472814168339-abpbbc5apnlernk9brapga05f85617cq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

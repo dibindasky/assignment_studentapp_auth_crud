@@ -4,6 +4,7 @@ import 'package:assignment_wandoor_kayla/application/presentation/screens/auth/w
 import 'package:assignment_wandoor_kayla/application/presentation/utils/constants/colors.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/utils/constants/constant.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/widgets/text_form_field.dart';
+import 'package:assignment_wandoor_kayla/data/services/auth/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
@@ -79,7 +80,10 @@ class ScreenSignUp extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     AuthImageContainer(
-                        img: 'assets/images/google.png', ontap: () {}),
+                        img: 'assets/images/google.png',
+                        ontap: () async {
+                          await AuthService().signInWithGoogle();
+                        }),
                     AuthImageContainer(
                         img: 'assets/images/mobile.png',
                         ontap: () {
