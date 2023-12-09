@@ -9,6 +9,7 @@ class AuthState with _$AuthState {
       required bool hasError,
       String? message,
       bool? otpSuccess,
+      bool? logOutSuccess,
       bool? signUpSuccess,
       bool? signInSuccess,
       String? otpVerificationId}) = _Initial;

@@ -22,8 +22,8 @@ mixin _$AuthEvent {
     required TResult Function(OtpModel otpModel) verifyOtp,
     required TResult Function(AuthModel authModel) signIn,
     required TResult Function(AuthModel authModel) signUP,
-    required TResult Function() googleSignUP,
     required TResult Function() googleSignIn,
+    required TResult Function() signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,8 +32,8 @@ mixin _$AuthEvent {
     TResult? Function(OtpModel otpModel)? verifyOtp,
     TResult? Function(AuthModel authModel)? signIn,
     TResult? Function(AuthModel authModel)? signUP,
-    TResult? Function()? googleSignUP,
     TResult? Function()? googleSignIn,
+    TResult? Function()? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,8 +42,8 @@ mixin _$AuthEvent {
     TResult Function(OtpModel otpModel)? verifyOtp,
     TResult Function(AuthModel authModel)? signIn,
     TResult Function(AuthModel authModel)? signUP,
-    TResult Function()? googleSignUP,
     TResult Function()? googleSignIn,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,8 +53,8 @@ mixin _$AuthEvent {
     required TResult Function(VerifyOtp value) verifyOtp,
     required TResult Function(SignIn value) signIn,
     required TResult Function(SignUP value) signUP,
-    required TResult Function(GoogleSignUP value) googleSignUP,
     required TResult Function(GoogleSignIn value) googleSignIn,
+    required TResult Function(SignOut value) signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,8 +63,8 @@ mixin _$AuthEvent {
     TResult? Function(VerifyOtp value)? verifyOtp,
     TResult? Function(SignIn value)? signIn,
     TResult? Function(SignUP value)? signUP,
-    TResult? Function(GoogleSignUP value)? googleSignUP,
     TResult? Function(GoogleSignIn value)? googleSignIn,
+    TResult? Function(SignOut value)? signOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -73,8 +73,8 @@ mixin _$AuthEvent {
     TResult Function(VerifyOtp value)? verifyOtp,
     TResult Function(SignIn value)? signIn,
     TResult Function(SignUP value)? signUP,
-    TResult Function(GoogleSignUP value)? googleSignUP,
     TResult Function(GoogleSignIn value)? googleSignIn,
+    TResult Function(SignOut value)? signOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -166,8 +166,8 @@ class _$GetOtpImpl implements GetOtp {
     required TResult Function(OtpModel otpModel) verifyOtp,
     required TResult Function(AuthModel authModel) signIn,
     required TResult Function(AuthModel authModel) signUP,
-    required TResult Function() googleSignUP,
     required TResult Function() googleSignIn,
+    required TResult Function() signOut,
   }) {
     return getOtp(phoneModel);
   }
@@ -179,8 +179,8 @@ class _$GetOtpImpl implements GetOtp {
     TResult? Function(OtpModel otpModel)? verifyOtp,
     TResult? Function(AuthModel authModel)? signIn,
     TResult? Function(AuthModel authModel)? signUP,
-    TResult? Function()? googleSignUP,
     TResult? Function()? googleSignIn,
+    TResult? Function()? signOut,
   }) {
     return getOtp?.call(phoneModel);
   }
@@ -192,8 +192,8 @@ class _$GetOtpImpl implements GetOtp {
     TResult Function(OtpModel otpModel)? verifyOtp,
     TResult Function(AuthModel authModel)? signIn,
     TResult Function(AuthModel authModel)? signUP,
-    TResult Function()? googleSignUP,
     TResult Function()? googleSignIn,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (getOtp != null) {
@@ -209,8 +209,8 @@ class _$GetOtpImpl implements GetOtp {
     required TResult Function(VerifyOtp value) verifyOtp,
     required TResult Function(SignIn value) signIn,
     required TResult Function(SignUP value) signUP,
-    required TResult Function(GoogleSignUP value) googleSignUP,
     required TResult Function(GoogleSignIn value) googleSignIn,
+    required TResult Function(SignOut value) signOut,
   }) {
     return getOtp(this);
   }
@@ -222,8 +222,8 @@ class _$GetOtpImpl implements GetOtp {
     TResult? Function(VerifyOtp value)? verifyOtp,
     TResult? Function(SignIn value)? signIn,
     TResult? Function(SignUP value)? signUP,
-    TResult? Function(GoogleSignUP value)? googleSignUP,
     TResult? Function(GoogleSignIn value)? googleSignIn,
+    TResult? Function(SignOut value)? signOut,
   }) {
     return getOtp?.call(this);
   }
@@ -235,8 +235,8 @@ class _$GetOtpImpl implements GetOtp {
     TResult Function(VerifyOtp value)? verifyOtp,
     TResult Function(SignIn value)? signIn,
     TResult Function(SignUP value)? signUP,
-    TResult Function(GoogleSignUP value)? googleSignUP,
     TResult Function(GoogleSignIn value)? googleSignIn,
+    TResult Function(SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (getOtp != null) {
@@ -324,8 +324,8 @@ class _$VerifyOtpImpl implements VerifyOtp {
     required TResult Function(OtpModel otpModel) verifyOtp,
     required TResult Function(AuthModel authModel) signIn,
     required TResult Function(AuthModel authModel) signUP,
-    required TResult Function() googleSignUP,
     required TResult Function() googleSignIn,
+    required TResult Function() signOut,
   }) {
     return verifyOtp(otpModel);
   }
@@ -337,8 +337,8 @@ class _$VerifyOtpImpl implements VerifyOtp {
     TResult? Function(OtpModel otpModel)? verifyOtp,
     TResult? Function(AuthModel authModel)? signIn,
     TResult? Function(AuthModel authModel)? signUP,
-    TResult? Function()? googleSignUP,
     TResult? Function()? googleSignIn,
+    TResult? Function()? signOut,
   }) {
     return verifyOtp?.call(otpModel);
   }
@@ -350,8 +350,8 @@ class _$VerifyOtpImpl implements VerifyOtp {
     TResult Function(OtpModel otpModel)? verifyOtp,
     TResult Function(AuthModel authModel)? signIn,
     TResult Function(AuthModel authModel)? signUP,
-    TResult Function()? googleSignUP,
     TResult Function()? googleSignIn,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (verifyOtp != null) {
@@ -367,8 +367,8 @@ class _$VerifyOtpImpl implements VerifyOtp {
     required TResult Function(VerifyOtp value) verifyOtp,
     required TResult Function(SignIn value) signIn,
     required TResult Function(SignUP value) signUP,
-    required TResult Function(GoogleSignUP value) googleSignUP,
     required TResult Function(GoogleSignIn value) googleSignIn,
+    required TResult Function(SignOut value) signOut,
   }) {
     return verifyOtp(this);
   }
@@ -380,8 +380,8 @@ class _$VerifyOtpImpl implements VerifyOtp {
     TResult? Function(VerifyOtp value)? verifyOtp,
     TResult? Function(SignIn value)? signIn,
     TResult? Function(SignUP value)? signUP,
-    TResult? Function(GoogleSignUP value)? googleSignUP,
     TResult? Function(GoogleSignIn value)? googleSignIn,
+    TResult? Function(SignOut value)? signOut,
   }) {
     return verifyOtp?.call(this);
   }
@@ -393,8 +393,8 @@ class _$VerifyOtpImpl implements VerifyOtp {
     TResult Function(VerifyOtp value)? verifyOtp,
     TResult Function(SignIn value)? signIn,
     TResult Function(SignUP value)? signUP,
-    TResult Function(GoogleSignUP value)? googleSignUP,
     TResult Function(GoogleSignIn value)? googleSignIn,
+    TResult Function(SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (verifyOtp != null) {
@@ -482,8 +482,8 @@ class _$SignInImpl implements SignIn {
     required TResult Function(OtpModel otpModel) verifyOtp,
     required TResult Function(AuthModel authModel) signIn,
     required TResult Function(AuthModel authModel) signUP,
-    required TResult Function() googleSignUP,
     required TResult Function() googleSignIn,
+    required TResult Function() signOut,
   }) {
     return signIn(authModel);
   }
@@ -495,8 +495,8 @@ class _$SignInImpl implements SignIn {
     TResult? Function(OtpModel otpModel)? verifyOtp,
     TResult? Function(AuthModel authModel)? signIn,
     TResult? Function(AuthModel authModel)? signUP,
-    TResult? Function()? googleSignUP,
     TResult? Function()? googleSignIn,
+    TResult? Function()? signOut,
   }) {
     return signIn?.call(authModel);
   }
@@ -508,8 +508,8 @@ class _$SignInImpl implements SignIn {
     TResult Function(OtpModel otpModel)? verifyOtp,
     TResult Function(AuthModel authModel)? signIn,
     TResult Function(AuthModel authModel)? signUP,
-    TResult Function()? googleSignUP,
     TResult Function()? googleSignIn,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (signIn != null) {
@@ -525,8 +525,8 @@ class _$SignInImpl implements SignIn {
     required TResult Function(VerifyOtp value) verifyOtp,
     required TResult Function(SignIn value) signIn,
     required TResult Function(SignUP value) signUP,
-    required TResult Function(GoogleSignUP value) googleSignUP,
     required TResult Function(GoogleSignIn value) googleSignIn,
+    required TResult Function(SignOut value) signOut,
   }) {
     return signIn(this);
   }
@@ -538,8 +538,8 @@ class _$SignInImpl implements SignIn {
     TResult? Function(VerifyOtp value)? verifyOtp,
     TResult? Function(SignIn value)? signIn,
     TResult? Function(SignUP value)? signUP,
-    TResult? Function(GoogleSignUP value)? googleSignUP,
     TResult? Function(GoogleSignIn value)? googleSignIn,
+    TResult? Function(SignOut value)? signOut,
   }) {
     return signIn?.call(this);
   }
@@ -551,8 +551,8 @@ class _$SignInImpl implements SignIn {
     TResult Function(VerifyOtp value)? verifyOtp,
     TResult Function(SignIn value)? signIn,
     TResult Function(SignUP value)? signUP,
-    TResult Function(GoogleSignUP value)? googleSignUP,
     TResult Function(GoogleSignIn value)? googleSignIn,
+    TResult Function(SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (signIn != null) {
@@ -640,8 +640,8 @@ class _$SignUPImpl implements SignUP {
     required TResult Function(OtpModel otpModel) verifyOtp,
     required TResult Function(AuthModel authModel) signIn,
     required TResult Function(AuthModel authModel) signUP,
-    required TResult Function() googleSignUP,
     required TResult Function() googleSignIn,
+    required TResult Function() signOut,
   }) {
     return signUP(authModel);
   }
@@ -653,8 +653,8 @@ class _$SignUPImpl implements SignUP {
     TResult? Function(OtpModel otpModel)? verifyOtp,
     TResult? Function(AuthModel authModel)? signIn,
     TResult? Function(AuthModel authModel)? signUP,
-    TResult? Function()? googleSignUP,
     TResult? Function()? googleSignIn,
+    TResult? Function()? signOut,
   }) {
     return signUP?.call(authModel);
   }
@@ -666,8 +666,8 @@ class _$SignUPImpl implements SignUP {
     TResult Function(OtpModel otpModel)? verifyOtp,
     TResult Function(AuthModel authModel)? signIn,
     TResult Function(AuthModel authModel)? signUP,
-    TResult Function()? googleSignUP,
     TResult Function()? googleSignIn,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (signUP != null) {
@@ -683,8 +683,8 @@ class _$SignUPImpl implements SignUP {
     required TResult Function(VerifyOtp value) verifyOtp,
     required TResult Function(SignIn value) signIn,
     required TResult Function(SignUP value) signUP,
-    required TResult Function(GoogleSignUP value) googleSignUP,
     required TResult Function(GoogleSignIn value) googleSignIn,
+    required TResult Function(SignOut value) signOut,
   }) {
     return signUP(this);
   }
@@ -696,8 +696,8 @@ class _$SignUPImpl implements SignUP {
     TResult? Function(VerifyOtp value)? verifyOtp,
     TResult? Function(SignIn value)? signIn,
     TResult? Function(SignUP value)? signUP,
-    TResult? Function(GoogleSignUP value)? googleSignUP,
     TResult? Function(GoogleSignIn value)? googleSignIn,
+    TResult? Function(SignOut value)? signOut,
   }) {
     return signUP?.call(this);
   }
@@ -709,8 +709,8 @@ class _$SignUPImpl implements SignUP {
     TResult Function(VerifyOtp value)? verifyOtp,
     TResult Function(SignIn value)? signIn,
     TResult Function(SignUP value)? signUP,
-    TResult Function(GoogleSignUP value)? googleSignUP,
     TResult Function(GoogleSignIn value)? googleSignIn,
+    TResult Function(SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (signUP != null) {
@@ -727,132 +727,6 @@ abstract class SignUP implements AuthEvent {
   @JsonKey(ignore: true)
   _$$SignUPImplCopyWith<_$SignUPImpl> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GoogleSignUPImplCopyWith<$Res> {
-  factory _$$GoogleSignUPImplCopyWith(
-          _$GoogleSignUPImpl value, $Res Function(_$GoogleSignUPImpl) then) =
-      __$$GoogleSignUPImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$GoogleSignUPImplCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$GoogleSignUPImpl>
-    implements _$$GoogleSignUPImplCopyWith<$Res> {
-  __$$GoogleSignUPImplCopyWithImpl(
-      _$GoogleSignUPImpl _value, $Res Function(_$GoogleSignUPImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$GoogleSignUPImpl implements GoogleSignUP {
-  const _$GoogleSignUPImpl();
-
-  @override
-  String toString() {
-    return 'AuthEvent.googleSignUP()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GoogleSignUPImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(PhoneModel phoneModel) getOtp,
-    required TResult Function(OtpModel otpModel) verifyOtp,
-    required TResult Function(AuthModel authModel) signIn,
-    required TResult Function(AuthModel authModel) signUP,
-    required TResult Function() googleSignUP,
-    required TResult Function() googleSignIn,
-  }) {
-    return googleSignUP();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PhoneModel phoneModel)? getOtp,
-    TResult? Function(OtpModel otpModel)? verifyOtp,
-    TResult? Function(AuthModel authModel)? signIn,
-    TResult? Function(AuthModel authModel)? signUP,
-    TResult? Function()? googleSignUP,
-    TResult? Function()? googleSignIn,
-  }) {
-    return googleSignUP?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PhoneModel phoneModel)? getOtp,
-    TResult Function(OtpModel otpModel)? verifyOtp,
-    TResult Function(AuthModel authModel)? signIn,
-    TResult Function(AuthModel authModel)? signUP,
-    TResult Function()? googleSignUP,
-    TResult Function()? googleSignIn,
-    required TResult orElse(),
-  }) {
-    if (googleSignUP != null) {
-      return googleSignUP();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetOtp value) getOtp,
-    required TResult Function(VerifyOtp value) verifyOtp,
-    required TResult Function(SignIn value) signIn,
-    required TResult Function(SignUP value) signUP,
-    required TResult Function(GoogleSignUP value) googleSignUP,
-    required TResult Function(GoogleSignIn value) googleSignIn,
-  }) {
-    return googleSignUP(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GetOtp value)? getOtp,
-    TResult? Function(VerifyOtp value)? verifyOtp,
-    TResult? Function(SignIn value)? signIn,
-    TResult? Function(SignUP value)? signUP,
-    TResult? Function(GoogleSignUP value)? googleSignUP,
-    TResult? Function(GoogleSignIn value)? googleSignIn,
-  }) {
-    return googleSignUP?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetOtp value)? getOtp,
-    TResult Function(VerifyOtp value)? verifyOtp,
-    TResult Function(SignIn value)? signIn,
-    TResult Function(SignUP value)? signUP,
-    TResult Function(GoogleSignUP value)? googleSignUP,
-    TResult Function(GoogleSignIn value)? googleSignIn,
-    required TResult orElse(),
-  }) {
-    if (googleSignUP != null) {
-      return googleSignUP(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GoogleSignUP implements AuthEvent {
-  const factory GoogleSignUP() = _$GoogleSignUPImpl;
 }
 
 /// @nodoc
@@ -897,8 +771,8 @@ class _$GoogleSignInImpl implements GoogleSignIn {
     required TResult Function(OtpModel otpModel) verifyOtp,
     required TResult Function(AuthModel authModel) signIn,
     required TResult Function(AuthModel authModel) signUP,
-    required TResult Function() googleSignUP,
     required TResult Function() googleSignIn,
+    required TResult Function() signOut,
   }) {
     return googleSignIn();
   }
@@ -910,8 +784,8 @@ class _$GoogleSignInImpl implements GoogleSignIn {
     TResult? Function(OtpModel otpModel)? verifyOtp,
     TResult? Function(AuthModel authModel)? signIn,
     TResult? Function(AuthModel authModel)? signUP,
-    TResult? Function()? googleSignUP,
     TResult? Function()? googleSignIn,
+    TResult? Function()? signOut,
   }) {
     return googleSignIn?.call();
   }
@@ -923,8 +797,8 @@ class _$GoogleSignInImpl implements GoogleSignIn {
     TResult Function(OtpModel otpModel)? verifyOtp,
     TResult Function(AuthModel authModel)? signIn,
     TResult Function(AuthModel authModel)? signUP,
-    TResult Function()? googleSignUP,
     TResult Function()? googleSignIn,
+    TResult Function()? signOut,
     required TResult orElse(),
   }) {
     if (googleSignIn != null) {
@@ -940,8 +814,8 @@ class _$GoogleSignInImpl implements GoogleSignIn {
     required TResult Function(VerifyOtp value) verifyOtp,
     required TResult Function(SignIn value) signIn,
     required TResult Function(SignUP value) signUP,
-    required TResult Function(GoogleSignUP value) googleSignUP,
     required TResult Function(GoogleSignIn value) googleSignIn,
+    required TResult Function(SignOut value) signOut,
   }) {
     return googleSignIn(this);
   }
@@ -953,8 +827,8 @@ class _$GoogleSignInImpl implements GoogleSignIn {
     TResult? Function(VerifyOtp value)? verifyOtp,
     TResult? Function(SignIn value)? signIn,
     TResult? Function(SignUP value)? signUP,
-    TResult? Function(GoogleSignUP value)? googleSignUP,
     TResult? Function(GoogleSignIn value)? googleSignIn,
+    TResult? Function(SignOut value)? signOut,
   }) {
     return googleSignIn?.call(this);
   }
@@ -966,8 +840,8 @@ class _$GoogleSignInImpl implements GoogleSignIn {
     TResult Function(VerifyOtp value)? verifyOtp,
     TResult Function(SignIn value)? signIn,
     TResult Function(SignUP value)? signUP,
-    TResult Function(GoogleSignUP value)? googleSignUP,
     TResult Function(GoogleSignIn value)? googleSignIn,
+    TResult Function(SignOut value)? signOut,
     required TResult orElse(),
   }) {
     if (googleSignIn != null) {
@@ -982,11 +856,138 @@ abstract class GoogleSignIn implements AuthEvent {
 }
 
 /// @nodoc
+abstract class _$$SignOutImplCopyWith<$Res> {
+  factory _$$SignOutImplCopyWith(
+          _$SignOutImpl value, $Res Function(_$SignOutImpl) then) =
+      __$$SignOutImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SignOutImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$SignOutImpl>
+    implements _$$SignOutImplCopyWith<$Res> {
+  __$$SignOutImplCopyWithImpl(
+      _$SignOutImpl _value, $Res Function(_$SignOutImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SignOutImpl implements SignOut {
+  const _$SignOutImpl();
+
+  @override
+  String toString() {
+    return 'AuthEvent.signOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SignOutImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PhoneModel phoneModel) getOtp,
+    required TResult Function(OtpModel otpModel) verifyOtp,
+    required TResult Function(AuthModel authModel) signIn,
+    required TResult Function(AuthModel authModel) signUP,
+    required TResult Function() googleSignIn,
+    required TResult Function() signOut,
+  }) {
+    return signOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PhoneModel phoneModel)? getOtp,
+    TResult? Function(OtpModel otpModel)? verifyOtp,
+    TResult? Function(AuthModel authModel)? signIn,
+    TResult? Function(AuthModel authModel)? signUP,
+    TResult? Function()? googleSignIn,
+    TResult? Function()? signOut,
+  }) {
+    return signOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PhoneModel phoneModel)? getOtp,
+    TResult Function(OtpModel otpModel)? verifyOtp,
+    TResult Function(AuthModel authModel)? signIn,
+    TResult Function(AuthModel authModel)? signUP,
+    TResult Function()? googleSignIn,
+    TResult Function()? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetOtp value) getOtp,
+    required TResult Function(VerifyOtp value) verifyOtp,
+    required TResult Function(SignIn value) signIn,
+    required TResult Function(SignUP value) signUP,
+    required TResult Function(GoogleSignIn value) googleSignIn,
+    required TResult Function(SignOut value) signOut,
+  }) {
+    return signOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetOtp value)? getOtp,
+    TResult? Function(VerifyOtp value)? verifyOtp,
+    TResult? Function(SignIn value)? signIn,
+    TResult? Function(SignUP value)? signUP,
+    TResult? Function(GoogleSignIn value)? googleSignIn,
+    TResult? Function(SignOut value)? signOut,
+  }) {
+    return signOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetOtp value)? getOtp,
+    TResult Function(VerifyOtp value)? verifyOtp,
+    TResult Function(SignIn value)? signIn,
+    TResult Function(SignUP value)? signUP,
+    TResult Function(GoogleSignIn value)? googleSignIn,
+    TResult Function(SignOut value)? signOut,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignOut implements AuthEvent {
+  const factory SignOut() = _$SignOutImpl;
+}
+
+/// @nodoc
 mixin _$AuthState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get hasError => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   bool? get otpSuccess => throw _privateConstructorUsedError;
+  bool? get logOutSuccess => throw _privateConstructorUsedError;
   bool? get signUpSuccess => throw _privateConstructorUsedError;
   bool? get signInSuccess => throw _privateConstructorUsedError;
   String? get otpVerificationId => throw _privateConstructorUsedError;
@@ -1006,6 +1007,7 @@ abstract class $AuthStateCopyWith<$Res> {
       bool hasError,
       String? message,
       bool? otpSuccess,
+      bool? logOutSuccess,
       bool? signUpSuccess,
       bool? signInSuccess,
       String? otpVerificationId});
@@ -1028,6 +1030,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     Object? hasError = null,
     Object? message = freezed,
     Object? otpSuccess = freezed,
+    Object? logOutSuccess = freezed,
     Object? signUpSuccess = freezed,
     Object? signInSuccess = freezed,
     Object? otpVerificationId = freezed,
@@ -1048,6 +1051,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
       otpSuccess: freezed == otpSuccess
           ? _value.otpSuccess
           : otpSuccess // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      logOutSuccess: freezed == logOutSuccess
+          ? _value.logOutSuccess
+          : logOutSuccess // ignore: cast_nullable_to_non_nullable
               as bool?,
       signUpSuccess: freezed == signUpSuccess
           ? _value.signUpSuccess
@@ -1078,6 +1085,7 @@ abstract class _$$InitialImplCopyWith<$Res>
       bool hasError,
       String? message,
       bool? otpSuccess,
+      bool? logOutSuccess,
       bool? signUpSuccess,
       bool? signInSuccess,
       String? otpVerificationId});
@@ -1098,6 +1106,7 @@ class __$$InitialImplCopyWithImpl<$Res>
     Object? hasError = null,
     Object? message = freezed,
     Object? otpSuccess = freezed,
+    Object? logOutSuccess = freezed,
     Object? signUpSuccess = freezed,
     Object? signInSuccess = freezed,
     Object? otpVerificationId = freezed,
@@ -1118,6 +1127,10 @@ class __$$InitialImplCopyWithImpl<$Res>
       otpSuccess: freezed == otpSuccess
           ? _value.otpSuccess
           : otpSuccess // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      logOutSuccess: freezed == logOutSuccess
+          ? _value.logOutSuccess
+          : logOutSuccess // ignore: cast_nullable_to_non_nullable
               as bool?,
       signUpSuccess: freezed == signUpSuccess
           ? _value.signUpSuccess
@@ -1143,6 +1156,7 @@ class _$InitialImpl implements _Initial {
       required this.hasError,
       this.message,
       this.otpSuccess,
+      this.logOutSuccess,
       this.signUpSuccess,
       this.signInSuccess,
       this.otpVerificationId});
@@ -1156,6 +1170,8 @@ class _$InitialImpl implements _Initial {
   @override
   final bool? otpSuccess;
   @override
+  final bool? logOutSuccess;
+  @override
   final bool? signUpSuccess;
   @override
   final bool? signInSuccess;
@@ -1164,7 +1180,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'AuthState(isLoading: $isLoading, hasError: $hasError, message: $message, otpSuccess: $otpSuccess, signUpSuccess: $signUpSuccess, signInSuccess: $signInSuccess, otpVerificationId: $otpVerificationId)';
+    return 'AuthState(isLoading: $isLoading, hasError: $hasError, message: $message, otpSuccess: $otpSuccess, logOutSuccess: $logOutSuccess, signUpSuccess: $signUpSuccess, signInSuccess: $signInSuccess, otpVerificationId: $otpVerificationId)';
   }
 
   @override
@@ -1179,6 +1195,8 @@ class _$InitialImpl implements _Initial {
             (identical(other.message, message) || other.message == message) &&
             (identical(other.otpSuccess, otpSuccess) ||
                 other.otpSuccess == otpSuccess) &&
+            (identical(other.logOutSuccess, logOutSuccess) ||
+                other.logOutSuccess == logOutSuccess) &&
             (identical(other.signUpSuccess, signUpSuccess) ||
                 other.signUpSuccess == signUpSuccess) &&
             (identical(other.signInSuccess, signInSuccess) ||
@@ -1188,8 +1206,16 @@ class _$InitialImpl implements _Initial {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, hasError, message,
-      otpSuccess, signUpSuccess, signInSuccess, otpVerificationId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isLoading,
+      hasError,
+      message,
+      otpSuccess,
+      logOutSuccess,
+      signUpSuccess,
+      signInSuccess,
+      otpVerificationId);
 
   @JsonKey(ignore: true)
   @override
@@ -1204,6 +1230,7 @@ abstract class _Initial implements AuthState {
       required final bool hasError,
       final String? message,
       final bool? otpSuccess,
+      final bool? logOutSuccess,
       final bool? signUpSuccess,
       final bool? signInSuccess,
       final String? otpVerificationId}) = _$InitialImpl;
@@ -1216,6 +1243,8 @@ abstract class _Initial implements AuthState {
   String? get message;
   @override
   bool? get otpSuccess;
+  @override
+  bool? get logOutSuccess;
   @override
   bool? get signUpSuccess;
   @override

@@ -1,6 +1,7 @@
-import 'package:assignment_wandoor_kayla/application/presentation/routes/routes.dart';
+import 'package:assignment_wandoor_kayla/application/presentation/screens/auth/sign_in.dart';
+import 'package:assignment_wandoor_kayla/application/presentation/screens/home/home.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/utils/constants/colors.dart';
-import 'package:assignment_wandoor_kayla/application/presentation/utils/constants/constant.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ScreenSplash extends StatelessWidget {
@@ -8,12 +9,21 @@ class ScreenSplash extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      sizeFinder(context);
-     // Timer(const Duration(seconds: 1), () {
-        Navigator.pushNamed(context, Routes.verifyOtpPage);
-       //});
-     });
-    return const Scaffold(backgroundColor: kBlueLight,);
+    print('splash ----------1');
+    return Scaffold(
+      backgroundColor: kBlueLight,
+      body: StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: ((context, snapshot) {
+          return snapshot.connectionState == ConnectionState.waiting
+              ? const Center(
+                  child: CircularProgressIndicator(),
+                )
+              : snapshot.hasData
+                  ? const ScreenHome()
+                  : const ScreenSignIn();
+        }),
+      ),
+    );
   }
 }

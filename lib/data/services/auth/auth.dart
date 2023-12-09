@@ -50,12 +50,12 @@ class AuthService implements AuthRepo {
           email: login.email, password: login.password);
       return Right(credential);
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'INVALID_LOGIN_CREDENTIALS') {
+      if (e.code == 'INVALID_LOGIN_CREDENTIALS'||e.code =='invalid-credential') {
         return Left(Failure(message: 'no account find with given email'));
       } else if (e.code == 'wrong-password') {
         return Left(Failure(message: 'wrong password'));
       } else {
-        return Left(Failure(message: e.message));
+        return Left(Failure(message: e.code));
       }
     } catch (e) {
       return Left(Failure(message: e.toString()));
@@ -65,23 +65,29 @@ class AuthService implements AuthRepo {
   @override
   Future<Either<Failure, Success>> sendOtp(PhoneModel phoneModel) async {
     try {
+      String? verifyId;
       Completer<String?> completer = Completer<String>();
       await FirebaseAuth.instance.verifyPhoneNumber(
-        phoneNumber: phoneModel.phone,
+        phoneNumber: '+91${phoneModel.phone}',
         timeout: const Duration(seconds: 60),
         verificationCompleted: (PhoneAuthCredential credential) {},
         verificationFailed: (error) {
+          print('error in otp sending');
+          verifyId=null;
           completer.complete(null);
         },
         codeSent: (String verificationId, int? resendToken) {
+          print('otp send successfully');
+          verifyId=verificationId;
           completer.complete(verificationId);
         },
         codeAutoRetrievalTimeout: (String verificationId) {},
       );
-      if (await completer.future == null) {
+      await completer.future;
+      if (verifyId == null) {
         return Left(Failure(message: 'failed to send otp'));
       } else {
-        return Right(Success(message: await completer.future));
+        return Right(Success(message: verifyId));
       }
     } catch (e) {
       return Left(Failure(message: 'failed to send otp'));
@@ -92,12 +98,25 @@ class AuthService implements AuthRepo {
   Future<Either<Failure, Success>> verifyOtp(
       String verificationId, OtpModel otpModel) async {
     try {
+      print('verification id = $verificationId ,\n codesms => ${otpModel.smsCode}');
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
           verificationId: verificationId, smsCode: otpModel.smsCode);
       await FirebaseAuth.instance.signInWithCredential(credential);
-      return Right(Success(message: ''));
+      print('verify otp successfuly');
+      return Right(Success(message: 'user authenticated successfully'));
     } catch (error) {
+      print('got error in verify otp => ${error.toString()}');
       return Left(Failure(message: 'failed to verify otp'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, Success>> signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      return Right(Success(message: 'sign out successfully'));
+    } catch (e) {
+      return Left(Failure(message: 'failed to sign_out Please try again'));
     }
   }
 }

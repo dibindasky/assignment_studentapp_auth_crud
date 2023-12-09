@@ -2,7 +2,7 @@ import 'package:assignment_wandoor_kayla/application/presentation/screens/add_st
 import 'package:assignment_wandoor_kayla/application/presentation/screens/auth/get_otp.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/screens/auth/sign_in.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/screens/auth/sign_up.dart';
-import 'package:assignment_wandoor_kayla/application/presentation/screens/auth/widgets/verify_otp.dart';
+import 'package:assignment_wandoor_kayla/application/presentation/screens/auth/verify_otp.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/screens/home/home.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/screens/splash/splash.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ class RouteGenerator {
     //final arguments = settings.arguments;
     switch (settings.name) {
       case Routes.initial:
-        return MaterialPageRoute(builder: (ctx) => const ScreenSignIn());
+        return MaterialPageRoute(builder: (ctx) => const ScreenSplash());
       case Routes.signInPage:
         return MaterialPageRoute(builder: (ctx) => const ScreenSignIn());
       case Routes.signUpPage:

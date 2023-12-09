@@ -1,6 +1,8 @@
+import 'package:assignment_wandoor_kayla/application/business_logic/auth/auth_bloc.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/utils/constants/colors.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/utils/constants/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 Future<dynamic> customShowDialoge(
     {required BuildContext context, required VoidCallback onPress}) {
@@ -56,13 +58,11 @@ Future<dynamic> logoutDialog(BuildContext context) {
               children: [
                 ElevatedButton(
                     style: elevatedButtonStyle,
-                    child: Text( 'confirm'),
+                    child: const Text( 'confirm'),
                     onPressed: () {
-                    
-                      Navigator.pop(context);
+                      context.read<AuthBloc>().add(const AuthEvent.signOut());
                     },
                     ),
-                //kHeight10
               ],
             )
           ],
