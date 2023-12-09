@@ -31,3 +31,42 @@ Future<dynamic> customShowDialoge(
     ),
   );
 }
+Future<dynamic> logoutDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: kWhite,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Are you sure ?", style: abel(fontSize: 0.05)),
+              InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Icon(Icons.close, color: kBlack, size: 16))
+            ],
+          ),
+          content: Text("Please confirm if you want to logout",
+              style: abel(fontSize: 0.05)),
+          actions: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                    style: elevatedButtonStyle,
+                    child: Text( 'confirm'),
+                    onPressed: () {
+                    
+                      Navigator.pop(context);
+                    },
+                    ),
+                //kHeight10
+              ],
+            )
+          ],
+        );
+      },
+    );
+  }

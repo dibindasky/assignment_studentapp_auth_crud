@@ -3,6 +3,7 @@ import 'package:assignment_wandoor_kayla/application/presentation/routes/routes.
 import 'package:assignment_wandoor_kayla/application/presentation/screens/auth/widgets/auth_image_container.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/utils/constants/colors.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/utils/constants/constant.dart';
+import 'package:assignment_wandoor_kayla/application/presentation/utils/dialoge/show_dialoge.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/widgets/text_form_field.dart';
 import 'package:assignment_wandoor_kayla/data/services/auth/auth.dart';
 import 'package:flutter/material.dart';
@@ -82,12 +83,15 @@ class ScreenSignUp extends StatelessWidget {
                     AuthImageContainer(
                         img: 'assets/images/google.png',
                         ontap: () async {
+                          print('in google');
                           await AuthService().signInWithGoogle();
+                          print('after gogle');
                         }),
                     AuthImageContainer(
                         img: 'assets/images/mobile.png',
                         ontap: () {
-                          Navigator.pushNamed(context, Routes.otpPage);
+                        //  Navigator.pushNamed(context, Routes.otpPage);
+                        logoutDialog(context);
                         })
                   ],
                 )
