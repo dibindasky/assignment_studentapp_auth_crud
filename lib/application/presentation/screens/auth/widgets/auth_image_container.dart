@@ -8,7 +8,8 @@ class AuthImageContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(splashFactory: NoSplash.splashFactory,
+    return InkWell(
+      splashFactory: NoSplash.splashFactory,
       onTap: () => ontap(),
       child: Container(
         height: sWidth * 0.10,

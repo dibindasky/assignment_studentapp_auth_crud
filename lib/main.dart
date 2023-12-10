@@ -1,8 +1,9 @@
 import 'package:assignment_wandoor_kayla/application/business_logic/auth/auth_bloc.dart';
+import 'package:assignment_wandoor_kayla/application/business_logic/student/student_bloc.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/routes/route_generator.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/routes/routes.dart';
-import 'package:assignment_wandoor_kayla/data/local_db/student_curd.dart';
 import 'package:assignment_wandoor_kayla/data/services/auth/auth.dart';
+import 'package:assignment_wandoor_kayla/data/services/student/student.dart';
 import 'package:assignment_wandoor_kayla/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,6 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await StudentDb().initialiseDatabase();
   runApp(const AppRoot());
 }
 
@@ -23,7 +23,10 @@ class AppRoot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (ctx) => AuthBloc(AuthService()))],
+      providers: [
+        BlocProvider(create: (ctx) => AuthBloc(AuthService())),
+        BlocProvider(create: (ctx) => StudentBloc(StudentService()))
+      ],
       child: MaterialApp(
         theme: ThemeData(
           primarySwatch: Colors.blue,

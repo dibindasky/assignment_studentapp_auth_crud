@@ -1,9 +1,7 @@
 part of 'auth_bloc.dart';
 
-
 @freezed
 class AuthState with _$AuthState {
-
   const factory AuthState(
       {required bool isLoading,
       required bool hasError,
@@ -14,6 +12,6 @@ class AuthState with _$AuthState {
       bool? signInSuccess,
       String? otpVerificationId}) = _Initial;
 
-  factory AuthState.initial() => const AuthState(isLoading: false, hasError: false);
+  factory AuthState.initial() =>
+      const AuthState(isLoading: false, hasError: false);
 }
-

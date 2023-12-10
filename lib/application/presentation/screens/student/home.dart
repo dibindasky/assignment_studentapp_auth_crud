@@ -1,4 +1,5 @@
 import 'package:assignment_wandoor_kayla/application/business_logic/auth/auth_bloc.dart';
+import 'package:assignment_wandoor_kayla/application/business_logic/student/student_bloc.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/routes/routes.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/screens/student/widgets/custom_search_bar.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/utils/constants/colors.dart';
@@ -15,6 +16,9 @@ class ScreenHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<StudentBloc>().add(const StudentEvent.getAllData());
+    });
     return Scaffold(
       appBar: AppBar(
         foregroundColor: kWhite,
@@ -41,20 +45,10 @@ class ScreenHome extends StatelessWidget {
         ],
         bottom: PreferredSize(
           preferredSize: Size(sWidth, sHeight * 0.07),
-          child: Row(
-            children: [
-              Flexible(
-                flex: 7,
-                child: CustomSearchField(
-                  controller: TextEditingController(),
-                  hintText: 'Search',
-                  icon: Iconsax.search_normal_1,
-                  function: () {},
-                ),
-              ),
-              Flexible(
-                  child: IconButton(onPressed: () {}, icon: Icon(Iconsax.sort)))
-            ],
+          child: CustomSearchField(
+            hintText: 'Search',
+            icon: Iconsax.search_normal_1,
+            function: () {},
           ),
         ),
       ),
@@ -62,34 +56,88 @@ class ScreenHome extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-
-            Expanded(
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemBuilder: (context, index) => Container(
+            BlocBuilder<StudentBloc, StudentState>(
+              builder: (context, state) {
+                return Container(
                   margin: const EdgeInsets.all(5),
                   decoration: BoxDecoration(
                       boxShadow: [boxShadow],
                       color: kWhite,
                       borderRadius: const BorderRadius.all(kRadius10)),
-                  child: Center(
-                    child: ListTile(
-                      onTap: () {},
-                      minVerticalPadding: 20,
-                      leading: const CircleAvatar(
-                        backgroundColor: kBlueLight,
+                  height: sHeight * 0.07,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        'Age Range: ${state.minAge} - ${state.maxAge}',
+                        style:
+                            abel(fontSize: 0.04, fontWeight: FontWeight.w600),
                       ),
-                      title: Text(
-                        'name',
-                        style: abel(fontSize: 0.05, fontWeight: FontWeight.w600),
-                      ),
-                      subtitle: Text(
-                        '22',
-                        style: abel(),
-                      ),
-                    ),
+                      RangeSlider(
+                          activeColor: kBlue,
+                          min: 0,
+                          max: 50,
+                          values: RangeValues(
+                              state.minAge.toDouble(), state.maxAge.toDouble()),
+                          onChanged: (value) {
+                            context.read<StudentBloc>().add(
+                                StudentEvent.sortData(
+                                    start: value.start.toInt(),
+                                    end: value.end.toInt()));
+                          }),
+                    ],
                   ),
-                ),
+                );
+              },
+            ),
+            BlocBuilder<StudentBloc, StudentState>(
+              builder: (context, state) {
+                return state.isLoading
+                    ? const LinearProgressIndicator(
+                        color: kBlueLight,
+                      )
+                    : kEmpty;
+              },
+            ),
+            Expanded(
+              child: BlocBuilder<StudentBloc, StudentState>(
+                builder: (context, state) {
+                  if (state.studentList == null || state.studentList!.isEmpty) {
+                    return const Center(child: Text('List is Empty'));
+                  } else {
+                   return ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: state.studentList!.length,
+                      itemBuilder: (context, index) {
+                        final data=state.studentList![index];
+                        return Container(
+                        margin: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            boxShadow: [boxShadow],
+                            color: kWhite,
+                            borderRadius: const BorderRadius.all(kRadius10)),
+                        child: Center(
+                          child: ListTile(
+                            leading: CircleAvatar(
+                              backgroundColor: kBlueLight,
+                              backgroundImage: NetworkImage(data.image!),
+                            ),
+                            title: Text(
+                              data.name,
+                              style: abel(
+                                  fontSize: 0.05, fontWeight: FontWeight.w600),
+                            ),
+                            subtitle: Text(
+                              data.age.toString(),
+                              style: abel(),
+                            ),
+                          ),
+                        ),
+                      );
+                      },
+                    );
+                  }
+                },
               ),
             ),
           ],

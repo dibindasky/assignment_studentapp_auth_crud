@@ -1,6 +1,8 @@
+import 'package:assignment_wandoor_kayla/application/business_logic/student/student_bloc.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/utils/constants/colors.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/utils/constants/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomSearchField extends StatelessWidget {
   const CustomSearchField(
@@ -8,7 +10,6 @@ class CustomSearchField extends StatelessWidget {
       required this.hintText,
       this.icon,
       this.textAlign = TextAlign.start,
-      required this.controller,
       this.color = kWhite,
       this.textCapitalization = TextCapitalization.none,
       this.textInputType = TextInputType.emailAddress,
@@ -18,7 +19,6 @@ class CustomSearchField extends StatelessWidget {
   final VoidCallback function;
   final TextAlign textAlign;
   final TextInputType textInputType;
-  final TextEditingController controller;
   final Color color;
   final TextCapitalization textCapitalization;
 
@@ -41,13 +41,15 @@ class CustomSearchField extends StatelessWidget {
           ],
         ),
         child: TextField(
-          controller: controller,
+          onChanged: (value) => context
+              .read<StudentBloc>()
+              .add(StudentEvent.searchData(qurrey: value)),
           textCapitalization: textCapitalization,
           textAlign: textAlign,
           decoration: InputDecoration(
               suffixIcon: IconButton(
                 icon: Icon(icon),
-                onPressed: () => function(),
+                onPressed: () {},
               ),
               border: InputBorder.none,
               hintText: hintText,

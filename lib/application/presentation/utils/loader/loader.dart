@@ -3,7 +3,6 @@ import 'package:assignment_wandoor_kayla/application/presentation/utils/constant
 import 'package:flutter/material.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
-
 class LoadingAnimation extends StatelessWidget {
   const LoadingAnimation({
     super.key,
@@ -17,7 +16,11 @@ class LoadingAnimation extends StatelessWidget {
     return Center(
       child: SizedBox(
         width: sWidth * width,
-        child: const LoadingIndicator(indicatorType: Indicator.ballPulse,pathBackgroundColor: kBlue,colors: [kBlueDark],),
+        child: const LoadingIndicator(
+          indicatorType: Indicator.ballPulse,
+          pathBackgroundColor: kBlue,
+          colors: [kBlueDark],
+        ),
       ),
     );
   }

@@ -1,4 +1,3 @@
-
 import 'package:assignment_wandoor_kayla/application/presentation/utils/constants/colors.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/utils/constants/constant.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/utils/validators/validator.dart';
@@ -40,7 +39,6 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
 
   @override
   Widget build(BuildContext context) {
-    print('text form field ');
     return Center(
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -54,11 +52,17 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           validator: (value) {
             if (value!.isEmpty) {
               return 'This field cannot be empty';
-            }else if(widget.textInputType==TextInputType.emailAddress && !isValidEmail(value)){
+            }else if(widget.hintText=='Age' && !isValidAge(value)){
+              return 'enter a valid age';
+            } else if(widget.hintText=='Name' && !isValidName(value)){
+              return 'enter a valid name';
+            }else if (widget.textInputType == TextInputType.emailAddress &&
+                !isValidEmail(value)) {
               return 'Enter valid email';
-            }else if(widget.textInputType==TextInputType.phone && !isValidPhoneNumber(value)){
+            } else if (widget.textInputType == TextInputType.phone &&
+                !isValidPhoneNumber(value)) {
               return 'Enter valid phone number';
-            }else if(value.length<8){
+            } else if (widget.hintText=='Password'&& value.length < 8) {
               return 'password must contains at least 8 letters';
             }
             return null;
@@ -70,18 +74,19 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           obscureText:
               sufixIcon == null ? false : sufixIcon == widget.sufixIcon1,
           decoration: InputDecoration(
-            suffixIcon:widget.controller.text.isNotEmpty && widget.sufixIcon1 != null
-                ? InkWell(
-                    splashFactory: NoSplash.splashFactory,
-                    child: Icon(sufixIcon),
-                    onTap: () {
-                      setState(() {
-                        sufixIcon = sufixIcon == widget.sufixIcon1
-                            ? widget.sufixIcon2
-                            : widget.sufixIcon1;
-                      });
-                    })
-                : null,
+            suffixIcon:
+                widget.controller.text.isNotEmpty && widget.sufixIcon1 != null
+                    ? InkWell(
+                        splashFactory: NoSplash.splashFactory,
+                        child: Icon(sufixIcon),
+                        onTap: () {
+                          setState(() {
+                            sufixIcon = sufixIcon == widget.sufixIcon1
+                                ? widget.sufixIcon2
+                                : widget.sufixIcon1;
+                          });
+                        })
+                    : null,
             prefixIcon: widget.icon != null ? Icon(widget.icon) : null,
             border: InputBorder.none,
             hintText: widget.hintText,

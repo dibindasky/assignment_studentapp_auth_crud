@@ -10,7 +10,6 @@ part 'auth_state.dart';
 part 'auth_bloc.freezed.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-
   final AuthRepo authService;
 
   TextEditingController passwordController = TextEditingController();
@@ -21,7 +20,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   TextEditingController otpController = TextEditingController();
 
   AuthBloc(this.authService) : super(AuthState.initial()) {
-
     on<GetOtp>(getOtp);
     on<VerifyOtp>(verifyOtp);
     on<SignIn>(signIn);
@@ -37,11 +35,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     result.fold(
       (failure) => emit(
         state.copyWith(
-
             hasError: true, isLoading: false, message: failure.message),
       ),
       (success) => emit(
-        state.copyWith(isLoading: false, message: success.message,otpVerificationId: success.message),
+        state.copyWith(
+            isLoading: false,
+            message: success.message,
+            otpVerificationId: success.message),
       ),
     );
   }
@@ -51,7 +51,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(state.copyWith(hasError: false, isLoading: true));
     final result =
         await authService.verifyOtp(state.otpVerificationId!, event.otpModel);
-        print('back to block');
+    print('back to block');
     result.fold(
       (failure) => emit(state.copyWith(
           hasError: true,
@@ -116,7 +116,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       ),
     );
   }
-
 
   Future<void> signOut(SignOut event, Emitter<AuthState> emit) async {
     print('sign out bloc');

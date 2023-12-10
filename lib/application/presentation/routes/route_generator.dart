@@ -22,7 +22,8 @@ class RouteGenerator {
       case Routes.otpPage:
         return MaterialPageRoute(builder: (ctx) => const ScreenOtp());
       case Routes.verifyOtpPage:
-        return MaterialPageRoute(builder: (ctx) => const ScreenOtpVerification());
+        return MaterialPageRoute(
+            builder: (ctx) => const ScreenOtpVerification());
       case Routes.homePage:
         return MaterialPageRoute(builder: (ctx) => const ScreenHome());
       case Routes.addStudentPage:
@@ -31,6 +32,7 @@ class RouteGenerator {
         return _errorScreen();
     }
   }
+
   static Route<dynamic> _errorScreen() {
     return MaterialPageRoute(builder: (ctx) {
       return Scaffold(

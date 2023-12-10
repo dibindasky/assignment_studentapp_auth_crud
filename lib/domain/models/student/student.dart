@@ -1,18 +1,19 @@
-import 'dart:io';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'student.g.dart';
+
+@JsonSerializable()
 class Student {
-  int? id;
+  String? id;
   String name;
   int age;
-  File? image;
-  Student({required this.name, required this.age, this.image,this.id});
+  String? image;
 
-  static Student fromMap(Map<String, Object?> map) {
-    return Student(
-      id: map['id']as int,
-      name: map['name']as String,
-      age: map['age']as int,
-      image: map['image']as String == '' ? null : File(map['image']as String),
-    );
+  Student({this.id, required this.name,required this.age, this.image});
+
+  factory Student.fromJson(Map<String, dynamic> json) {
+    return _$StudentFromJson(json);
   }
+
+  Map<String, dynamic> toJson() => _$StudentToJson(this);
 }

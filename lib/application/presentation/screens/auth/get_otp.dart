@@ -34,12 +34,12 @@ class ScreenOtp extends StatelessWidget {
             kHeight20,
             BlocConsumer<AuthBloc, AuthState>(
               listener: (context, state) {
-                if(!state.hasError && state.otpVerificationId != null){
+                if (!state.hasError && state.otpVerificationId != null) {
                   Navigator.pushNamed(context, Routes.verifyOtpPage);
                 }
               },
               builder: (context, state) {
-                if(state.isLoading){
+                if (state.isLoading) {
                   return const LoadingAnimation(width: 0.20);
                 }
                 return ElevatedButton(

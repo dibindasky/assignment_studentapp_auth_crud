@@ -19,6 +19,7 @@ mixin _$StudentEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getAllData,
+    required TResult Function(ImageSource imageSource) pickImage,
     required TResult Function(Student student) addStudent,
     required TResult Function(int start, int end) sortData,
     required TResult Function(String qurrey) searchData,
@@ -27,6 +28,7 @@ mixin _$StudentEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllData,
+    TResult? Function(ImageSource imageSource)? pickImage,
     TResult? Function(Student student)? addStudent,
     TResult? Function(int start, int end)? sortData,
     TResult? Function(String qurrey)? searchData,
@@ -35,6 +37,7 @@ mixin _$StudentEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllData,
+    TResult Function(ImageSource imageSource)? pickImage,
     TResult Function(Student student)? addStudent,
     TResult Function(int start, int end)? sortData,
     TResult Function(String qurrey)? searchData,
@@ -44,6 +47,7 @@ mixin _$StudentEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetAllData value) getAllData,
+    required TResult Function(PickImage value) pickImage,
     required TResult Function(AddStudent value) addStudent,
     required TResult Function(SortData value) sortData,
     required TResult Function(SearchData value) searchData,
@@ -52,6 +56,7 @@ mixin _$StudentEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetAllData value)? getAllData,
+    TResult? Function(PickImage value)? pickImage,
     TResult? Function(AddStudent value)? addStudent,
     TResult? Function(SortData value)? sortData,
     TResult? Function(SearchData value)? searchData,
@@ -60,6 +65,7 @@ mixin _$StudentEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetAllData value)? getAllData,
+    TResult Function(PickImage value)? pickImage,
     TResult Function(AddStudent value)? addStudent,
     TResult Function(SortData value)? sortData,
     TResult Function(SearchData value)? searchData,
@@ -125,6 +131,7 @@ class _$GetAllDataImpl implements GetAllData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getAllData,
+    required TResult Function(ImageSource imageSource) pickImage,
     required TResult Function(Student student) addStudent,
     required TResult Function(int start, int end) sortData,
     required TResult Function(String qurrey) searchData,
@@ -136,6 +143,7 @@ class _$GetAllDataImpl implements GetAllData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllData,
+    TResult? Function(ImageSource imageSource)? pickImage,
     TResult? Function(Student student)? addStudent,
     TResult? Function(int start, int end)? sortData,
     TResult? Function(String qurrey)? searchData,
@@ -147,6 +155,7 @@ class _$GetAllDataImpl implements GetAllData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllData,
+    TResult Function(ImageSource imageSource)? pickImage,
     TResult Function(Student student)? addStudent,
     TResult Function(int start, int end)? sortData,
     TResult Function(String qurrey)? searchData,
@@ -162,6 +171,7 @@ class _$GetAllDataImpl implements GetAllData {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetAllData value) getAllData,
+    required TResult Function(PickImage value) pickImage,
     required TResult Function(AddStudent value) addStudent,
     required TResult Function(SortData value) sortData,
     required TResult Function(SearchData value) searchData,
@@ -173,6 +183,7 @@ class _$GetAllDataImpl implements GetAllData {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetAllData value)? getAllData,
+    TResult? Function(PickImage value)? pickImage,
     TResult? Function(AddStudent value)? addStudent,
     TResult? Function(SortData value)? sortData,
     TResult? Function(SearchData value)? searchData,
@@ -184,6 +195,7 @@ class _$GetAllDataImpl implements GetAllData {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetAllData value)? getAllData,
+    TResult Function(PickImage value)? pickImage,
     TResult Function(AddStudent value)? addStudent,
     TResult Function(SortData value)? sortData,
     TResult Function(SearchData value)? searchData,
@@ -198,6 +210,159 @@ class _$GetAllDataImpl implements GetAllData {
 
 abstract class GetAllData implements StudentEvent {
   const factory GetAllData() = _$GetAllDataImpl;
+}
+
+/// @nodoc
+abstract class _$$PickImageImplCopyWith<$Res> {
+  factory _$$PickImageImplCopyWith(
+          _$PickImageImpl value, $Res Function(_$PickImageImpl) then) =
+      __$$PickImageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ImageSource imageSource});
+}
+
+/// @nodoc
+class __$$PickImageImplCopyWithImpl<$Res>
+    extends _$StudentEventCopyWithImpl<$Res, _$PickImageImpl>
+    implements _$$PickImageImplCopyWith<$Res> {
+  __$$PickImageImplCopyWithImpl(
+      _$PickImageImpl _value, $Res Function(_$PickImageImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? imageSource = null,
+  }) {
+    return _then(_$PickImageImpl(
+      imageSource: null == imageSource
+          ? _value.imageSource
+          : imageSource // ignore: cast_nullable_to_non_nullable
+              as ImageSource,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PickImageImpl implements PickImage {
+  const _$PickImageImpl({required this.imageSource});
+
+  @override
+  final ImageSource imageSource;
+
+  @override
+  String toString() {
+    return 'StudentEvent.pickImage(imageSource: $imageSource)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PickImageImpl &&
+            (identical(other.imageSource, imageSource) ||
+                other.imageSource == imageSource));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, imageSource);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PickImageImplCopyWith<_$PickImageImpl> get copyWith =>
+      __$$PickImageImplCopyWithImpl<_$PickImageImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getAllData,
+    required TResult Function(ImageSource imageSource) pickImage,
+    required TResult Function(Student student) addStudent,
+    required TResult Function(int start, int end) sortData,
+    required TResult Function(String qurrey) searchData,
+  }) {
+    return pickImage(imageSource);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getAllData,
+    TResult? Function(ImageSource imageSource)? pickImage,
+    TResult? Function(Student student)? addStudent,
+    TResult? Function(int start, int end)? sortData,
+    TResult? Function(String qurrey)? searchData,
+  }) {
+    return pickImage?.call(imageSource);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getAllData,
+    TResult Function(ImageSource imageSource)? pickImage,
+    TResult Function(Student student)? addStudent,
+    TResult Function(int start, int end)? sortData,
+    TResult Function(String qurrey)? searchData,
+    required TResult orElse(),
+  }) {
+    if (pickImage != null) {
+      return pickImage(imageSource);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetAllData value) getAllData,
+    required TResult Function(PickImage value) pickImage,
+    required TResult Function(AddStudent value) addStudent,
+    required TResult Function(SortData value) sortData,
+    required TResult Function(SearchData value) searchData,
+  }) {
+    return pickImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GetAllData value)? getAllData,
+    TResult? Function(PickImage value)? pickImage,
+    TResult? Function(AddStudent value)? addStudent,
+    TResult? Function(SortData value)? sortData,
+    TResult? Function(SearchData value)? searchData,
+  }) {
+    return pickImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetAllData value)? getAllData,
+    TResult Function(PickImage value)? pickImage,
+    TResult Function(AddStudent value)? addStudent,
+    TResult Function(SortData value)? sortData,
+    TResult Function(SearchData value)? searchData,
+    required TResult orElse(),
+  }) {
+    if (pickImage != null) {
+      return pickImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PickImage implements StudentEvent {
+  const factory PickImage({required final ImageSource imageSource}) =
+      _$PickImageImpl;
+
+  ImageSource get imageSource;
+  @JsonKey(ignore: true)
+  _$$PickImageImplCopyWith<_$PickImageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -265,6 +430,7 @@ class _$AddStudentImpl implements AddStudent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getAllData,
+    required TResult Function(ImageSource imageSource) pickImage,
     required TResult Function(Student student) addStudent,
     required TResult Function(int start, int end) sortData,
     required TResult Function(String qurrey) searchData,
@@ -276,6 +442,7 @@ class _$AddStudentImpl implements AddStudent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllData,
+    TResult? Function(ImageSource imageSource)? pickImage,
     TResult? Function(Student student)? addStudent,
     TResult? Function(int start, int end)? sortData,
     TResult? Function(String qurrey)? searchData,
@@ -287,6 +454,7 @@ class _$AddStudentImpl implements AddStudent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllData,
+    TResult Function(ImageSource imageSource)? pickImage,
     TResult Function(Student student)? addStudent,
     TResult Function(int start, int end)? sortData,
     TResult Function(String qurrey)? searchData,
@@ -302,6 +470,7 @@ class _$AddStudentImpl implements AddStudent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetAllData value) getAllData,
+    required TResult Function(PickImage value) pickImage,
     required TResult Function(AddStudent value) addStudent,
     required TResult Function(SortData value) sortData,
     required TResult Function(SearchData value) searchData,
@@ -313,6 +482,7 @@ class _$AddStudentImpl implements AddStudent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetAllData value)? getAllData,
+    TResult? Function(PickImage value)? pickImage,
     TResult? Function(AddStudent value)? addStudent,
     TResult? Function(SortData value)? sortData,
     TResult? Function(SearchData value)? searchData,
@@ -324,6 +494,7 @@ class _$AddStudentImpl implements AddStudent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetAllData value)? getAllData,
+    TResult Function(PickImage value)? pickImage,
     TResult Function(AddStudent value)? addStudent,
     TResult Function(SortData value)? sortData,
     TResult Function(SearchData value)? searchData,
@@ -418,6 +589,7 @@ class _$SortDataImpl implements SortData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getAllData,
+    required TResult Function(ImageSource imageSource) pickImage,
     required TResult Function(Student student) addStudent,
     required TResult Function(int start, int end) sortData,
     required TResult Function(String qurrey) searchData,
@@ -429,6 +601,7 @@ class _$SortDataImpl implements SortData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllData,
+    TResult? Function(ImageSource imageSource)? pickImage,
     TResult? Function(Student student)? addStudent,
     TResult? Function(int start, int end)? sortData,
     TResult? Function(String qurrey)? searchData,
@@ -440,6 +613,7 @@ class _$SortDataImpl implements SortData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllData,
+    TResult Function(ImageSource imageSource)? pickImage,
     TResult Function(Student student)? addStudent,
     TResult Function(int start, int end)? sortData,
     TResult Function(String qurrey)? searchData,
@@ -455,6 +629,7 @@ class _$SortDataImpl implements SortData {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetAllData value) getAllData,
+    required TResult Function(PickImage value) pickImage,
     required TResult Function(AddStudent value) addStudent,
     required TResult Function(SortData value) sortData,
     required TResult Function(SearchData value) searchData,
@@ -466,6 +641,7 @@ class _$SortDataImpl implements SortData {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetAllData value)? getAllData,
+    TResult? Function(PickImage value)? pickImage,
     TResult? Function(AddStudent value)? addStudent,
     TResult? Function(SortData value)? sortData,
     TResult? Function(SearchData value)? searchData,
@@ -477,6 +653,7 @@ class _$SortDataImpl implements SortData {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetAllData value)? getAllData,
+    TResult Function(PickImage value)? pickImage,
     TResult Function(AddStudent value)? addStudent,
     TResult Function(SortData value)? sortData,
     TResult Function(SearchData value)? searchData,
@@ -565,6 +742,7 @@ class _$SearchDataImpl implements SearchData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getAllData,
+    required TResult Function(ImageSource imageSource) pickImage,
     required TResult Function(Student student) addStudent,
     required TResult Function(int start, int end) sortData,
     required TResult Function(String qurrey) searchData,
@@ -576,6 +754,7 @@ class _$SearchDataImpl implements SearchData {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getAllData,
+    TResult? Function(ImageSource imageSource)? pickImage,
     TResult? Function(Student student)? addStudent,
     TResult? Function(int start, int end)? sortData,
     TResult? Function(String qurrey)? searchData,
@@ -587,6 +766,7 @@ class _$SearchDataImpl implements SearchData {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getAllData,
+    TResult Function(ImageSource imageSource)? pickImage,
     TResult Function(Student student)? addStudent,
     TResult Function(int start, int end)? sortData,
     TResult Function(String qurrey)? searchData,
@@ -602,6 +782,7 @@ class _$SearchDataImpl implements SearchData {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GetAllData value) getAllData,
+    required TResult Function(PickImage value) pickImage,
     required TResult Function(AddStudent value) addStudent,
     required TResult Function(SortData value) sortData,
     required TResult Function(SearchData value) searchData,
@@ -613,6 +794,7 @@ class _$SearchDataImpl implements SearchData {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GetAllData value)? getAllData,
+    TResult? Function(PickImage value)? pickImage,
     TResult? Function(AddStudent value)? addStudent,
     TResult? Function(SortData value)? sortData,
     TResult? Function(SearchData value)? searchData,
@@ -624,6 +806,7 @@ class _$SearchDataImpl implements SearchData {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetAllData value)? getAllData,
+    TResult Function(PickImage value)? pickImage,
     TResult Function(AddStudent value)? addStudent,
     TResult Function(SortData value)? sortData,
     TResult Function(SearchData value)? searchData,
@@ -649,6 +832,11 @@ abstract class SearchData implements StudentEvent {
 mixin _$StudentState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get hasError => throw _privateConstructorUsedError;
+  bool get isAdded => throw _privateConstructorUsedError;
+  int get minAge => throw _privateConstructorUsedError;
+  int get maxAge => throw _privateConstructorUsedError;
+  String get qurrey => throw _privateConstructorUsedError;
+  String? get image => throw _privateConstructorUsedError;
   List<Student>? get studentList => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -662,7 +850,15 @@ abstract class $StudentStateCopyWith<$Res> {
           StudentState value, $Res Function(StudentState) then) =
       _$StudentStateCopyWithImpl<$Res, StudentState>;
   @useResult
-  $Res call({bool isLoading, bool hasError, List<Student>? studentList});
+  $Res call(
+      {bool isLoading,
+      bool hasError,
+      bool isAdded,
+      int minAge,
+      int maxAge,
+      String qurrey,
+      String? image,
+      List<Student>? studentList});
 }
 
 /// @nodoc
@@ -680,6 +876,11 @@ class _$StudentStateCopyWithImpl<$Res, $Val extends StudentState>
   $Res call({
     Object? isLoading = null,
     Object? hasError = null,
+    Object? isAdded = null,
+    Object? minAge = null,
+    Object? maxAge = null,
+    Object? qurrey = null,
+    Object? image = freezed,
     Object? studentList = freezed,
   }) {
     return _then(_value.copyWith(
@@ -691,6 +892,26 @@ class _$StudentStateCopyWithImpl<$Res, $Val extends StudentState>
           ? _value.hasError
           : hasError // ignore: cast_nullable_to_non_nullable
               as bool,
+      isAdded: null == isAdded
+          ? _value.isAdded
+          : isAdded // ignore: cast_nullable_to_non_nullable
+              as bool,
+      minAge: null == minAge
+          ? _value.minAge
+          : minAge // ignore: cast_nullable_to_non_nullable
+              as int,
+      maxAge: null == maxAge
+          ? _value.maxAge
+          : maxAge // ignore: cast_nullable_to_non_nullable
+              as int,
+      qurrey: null == qurrey
+          ? _value.qurrey
+          : qurrey // ignore: cast_nullable_to_non_nullable
+              as String,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
       studentList: freezed == studentList
           ? _value.studentList
           : studentList // ignore: cast_nullable_to_non_nullable
@@ -707,7 +928,15 @@ abstract class _$$InitialImplCopyWith<$Res>
       __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoading, bool hasError, List<Student>? studentList});
+  $Res call(
+      {bool isLoading,
+      bool hasError,
+      bool isAdded,
+      int minAge,
+      int maxAge,
+      String qurrey,
+      String? image,
+      List<Student>? studentList});
 }
 
 /// @nodoc
@@ -723,6 +952,11 @@ class __$$InitialImplCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = null,
     Object? hasError = null,
+    Object? isAdded = null,
+    Object? minAge = null,
+    Object? maxAge = null,
+    Object? qurrey = null,
+    Object? image = freezed,
     Object? studentList = freezed,
   }) {
     return _then(_$InitialImpl(
@@ -734,6 +968,26 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.hasError
           : hasError // ignore: cast_nullable_to_non_nullable
               as bool,
+      isAdded: null == isAdded
+          ? _value.isAdded
+          : isAdded // ignore: cast_nullable_to_non_nullable
+              as bool,
+      minAge: null == minAge
+          ? _value.minAge
+          : minAge // ignore: cast_nullable_to_non_nullable
+              as int,
+      maxAge: null == maxAge
+          ? _value.maxAge
+          : maxAge // ignore: cast_nullable_to_non_nullable
+              as int,
+      qurrey: null == qurrey
+          ? _value.qurrey
+          : qurrey // ignore: cast_nullable_to_non_nullable
+              as String,
+      image: freezed == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String?,
       studentList: freezed == studentList
           ? _value._studentList
           : studentList // ignore: cast_nullable_to_non_nullable
@@ -748,6 +1002,11 @@ class _$InitialImpl implements _Initial {
   const _$InitialImpl(
       {required this.isLoading,
       required this.hasError,
+      required this.isAdded,
+      required this.minAge,
+      required this.maxAge,
+      required this.qurrey,
+      this.image,
       final List<Student>? studentList})
       : _studentList = studentList;
 
@@ -755,6 +1014,16 @@ class _$InitialImpl implements _Initial {
   final bool isLoading;
   @override
   final bool hasError;
+  @override
+  final bool isAdded;
+  @override
+  final int minAge;
+  @override
+  final int maxAge;
+  @override
+  final String qurrey;
+  @override
+  final String? image;
   final List<Student>? _studentList;
   @override
   List<Student>? get studentList {
@@ -767,7 +1036,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'StudentState(isLoading: $isLoading, hasError: $hasError, studentList: $studentList)';
+    return 'StudentState(isLoading: $isLoading, hasError: $hasError, isAdded: $isAdded, minAge: $minAge, maxAge: $maxAge, qurrey: $qurrey, image: $image, studentList: $studentList)';
   }
 
   @override
@@ -779,12 +1048,25 @@ class _$InitialImpl implements _Initial {
                 other.isLoading == isLoading) &&
             (identical(other.hasError, hasError) ||
                 other.hasError == hasError) &&
+            (identical(other.isAdded, isAdded) || other.isAdded == isAdded) &&
+            (identical(other.minAge, minAge) || other.minAge == minAge) &&
+            (identical(other.maxAge, maxAge) || other.maxAge == maxAge) &&
+            (identical(other.qurrey, qurrey) || other.qurrey == qurrey) &&
+            (identical(other.image, image) || other.image == image) &&
             const DeepCollectionEquality()
                 .equals(other._studentList, _studentList));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, hasError,
+  int get hashCode => Object.hash(
+      runtimeType,
+      isLoading,
+      hasError,
+      isAdded,
+      minAge,
+      maxAge,
+      qurrey,
+      image,
       const DeepCollectionEquality().hash(_studentList));
 
   @JsonKey(ignore: true)
@@ -798,12 +1080,27 @@ abstract class _Initial implements StudentState {
   const factory _Initial(
       {required final bool isLoading,
       required final bool hasError,
+      required final bool isAdded,
+      required final int minAge,
+      required final int maxAge,
+      required final String qurrey,
+      final String? image,
       final List<Student>? studentList}) = _$InitialImpl;
 
   @override
   bool get isLoading;
   @override
   bool get hasError;
+  @override
+  bool get isAdded;
+  @override
+  int get minAge;
+  @override
+  int get maxAge;
+  @override
+  String get qurrey;
+  @override
+  String? get image;
   @override
   List<Student>? get studentList;
   @override

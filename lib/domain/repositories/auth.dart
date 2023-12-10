@@ -13,6 +13,7 @@ abstract class AuthRepo {
   Future<Either<Failure, UserCredential>> signUpWithEmail(
       {required AuthModel signUp});
   Future<Either<Failure, UserCredential>> signInWithGoogle();
-  Future<Either<Failure,Success>> verifyOtp(String verificationId,OtpModel otpModel);
+  Future<Either<Failure, Success>> verifyOtp(
+      String verificationId, OtpModel otpModel);
   Future<Either<Failure, Success>> signOut();
 }

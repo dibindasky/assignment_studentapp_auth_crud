@@ -67,7 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '472814168339',
     projectId: 'assignmentwandoor',
     storageBucket: 'assignmentwandoor.appspot.com',
-    iosClientId: '472814168339-h76dto0j5cfr0jm1vat57b7us6jcn071.apps.googleusercontent.com',
+    iosClientId:
+        '472814168339-h76dto0j5cfr0jm1vat57b7us6jcn071.apps.googleusercontent.com',
     iosBundleId: 'com.example.assignmentWandoorKayla',
   );
 
@@ -77,7 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '472814168339',
     projectId: 'assignmentwandoor',
     storageBucket: 'assignmentwandoor.appspot.com',
-    iosClientId: '472814168339-g8bc4ckcvaqooofb4mjaoaaech3egi41.apps.googleusercontent.com',
+    iosClientId:
+        '472814168339-g8bc4ckcvaqooofb4mjaoaaech3egi41.apps.googleusercontent.com',
     iosBundleId: 'com.example.assignmentWandoorKayla.RunnerTests',
   );
 }

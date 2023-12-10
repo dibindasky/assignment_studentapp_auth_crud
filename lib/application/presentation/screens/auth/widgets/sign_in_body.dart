@@ -60,10 +60,11 @@ class SignInBody extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: Text('Forgot password ?', style: abel(color: kBlueDark))),
           kHeight20,
-          SizedBox(height: sHeight * 0.10,
+          SizedBox(
+            height: sHeight * 0.10,
             child: BlocBuilder<AuthBloc, AuthState>(
               builder: (context, state) {
-                if(state.isLoading){
+                if (state.isLoading) {
                   return const LoadingAnimation(width: 0.20);
                 }
                 return Align(

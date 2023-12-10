@@ -9,7 +9,6 @@ class ScreenSplash extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('splash ----------1');
     return Scaffold(
       backgroundColor: kBlueLight,
       body: StreamBuilder<User?>(

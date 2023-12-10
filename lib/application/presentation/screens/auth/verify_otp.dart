@@ -52,7 +52,7 @@ class ScreenOtpVerification extends StatelessWidget {
                 kHeight10,
                 BlocBuilder<AuthBloc, AuthState>(
                   builder: (context, state) {
-                    if(state.isLoading){
+                    if (state.isLoading) {
                       return const LoadingAnimation(width: 0.20);
                     }
                     return Align(

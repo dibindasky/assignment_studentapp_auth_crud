@@ -50,7 +50,8 @@ class AuthService implements AuthRepo {
           email: login.email, password: login.password);
       return Right(credential);
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'INVALID_LOGIN_CREDENTIALS'||e.code =='invalid-credential') {
+      if (e.code == 'INVALID_LOGIN_CREDENTIALS' ||
+          e.code == 'invalid-credential') {
         return Left(Failure(message: 'no account find with given email'));
       } else if (e.code == 'wrong-password') {
         return Left(Failure(message: 'wrong password'));
@@ -73,12 +74,12 @@ class AuthService implements AuthRepo {
         verificationCompleted: (PhoneAuthCredential credential) {},
         verificationFailed: (error) {
           print('error in otp sending');
-          verifyId=null;
+          verifyId = null;
           completer.complete(null);
         },
         codeSent: (String verificationId, int? resendToken) {
           print('otp send successfully');
-          verifyId=verificationId;
+          verifyId = verificationId;
           completer.complete(verificationId);
         },
         codeAutoRetrievalTimeout: (String verificationId) {},
@@ -98,7 +99,8 @@ class AuthService implements AuthRepo {
   Future<Either<Failure, Success>> verifyOtp(
       String verificationId, OtpModel otpModel) async {
     try {
-      print('verification id = $verificationId ,\n codesms => ${otpModel.smsCode}');
+      print(
+          'verification id = $verificationId ,\n codesms => ${otpModel.smsCode}');
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
           verificationId: verificationId, smsCode: otpModel.smsCode);
       await FirebaseAuth.instance.signInWithCredential(credential);

@@ -24,4 +24,3 @@ class ScreenSignIn extends StatelessWidget {
     );
   }
 }
-
