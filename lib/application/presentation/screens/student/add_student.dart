@@ -1,6 +1,6 @@
-import 'dart:io';
 
 import 'package:assignment_wandoor_kayla/application/business_logic/student/student_bloc.dart';
+import 'package:assignment_wandoor_kayla/application/presentation/screens/student/widgets/imge_picker_container.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/utils/constants/colors.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/utils/constants/constant.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/utils/loader/loader.dart';
@@ -9,8 +9,6 @@ import 'package:assignment_wandoor_kayla/application/presentation/widgets/text_f
 import 'package:assignment_wandoor_kayla/domain/models/student/student.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:image_picker/image_picker.dart';
 
 final addStudentKey = GlobalKey<FormState>();
 
@@ -39,59 +37,7 @@ class ScreenAddStudent extends StatelessWidget {
                     style: kronOne(fontSize: 0.05, color: kBlue),
                   ),
                   kHeight30,
-                  InkWell(
-                    onTap: () => showDialog(
-                        context: context,
-                        builder: (context) => AlertDialog(
-                              title: Text(
-                                'Choose image from',
-                                style: abel(fontSize: 0.06),
-                              ),
-                              actions: [
-                                TextButton.icon(
-                                    label: Text('Camera',
-                                        style: abel(fontSize: 0.05)),
-                                    onPressed: () {
-                                      context.read<StudentBloc>().add(
-                                          const StudentEvent.pickImage(
-                                              imageSource: ImageSource.camera));
-                                      Navigator.pop(context);
-                                    },
-                                    icon: const Icon(
-                                      Iconsax.camera,
-                                      color: kBlue,
-                                    )),
-                                TextButton.icon(
-                                    label: Text('Gallery',
-                                        style: abel(fontSize: 0.05)),
-                                    onPressed: () {
-                                      context.read<StudentBloc>().add(
-                                          const StudentEvent.pickImage(
-                                              imageSource:
-                                                  ImageSource.gallery));
-                                      Navigator.pop(context);
-                                    },
-                                    icon: const Icon(
-                                      Iconsax.gallery,
-                                      color: kBlue,
-                                    ))
-                              ],
-                            )),
-                    child: BlocBuilder<StudentBloc, StudentState>(
-                      builder: (context, state) {
-                        return CircleAvatar(
-                          radius: sWidth * 0.20,
-                          backgroundColor: kBlueLight,
-                          backgroundImage: state.image != null
-                              ? FileImage(File(state.image!))
-                              : null,
-                          child: state.image == null
-                              ? const Icon(Iconsax.image)
-                              : null,
-                        );
-                      },
-                    ),
-                  ),
+                  const ImagepickerContainer(),
                   kHeight50,
                   CustomTextFormField(
                     hintText: 'Name',
@@ -122,14 +68,7 @@ class ScreenAddStudent extends StatelessWidget {
                                   context: context,
                                   message: 'add Image and continue');
                               return;
-                            }
-                            print(context
-                                .read<StudentBloc>()
-                                .ageController
-                                .text
-                                .toString()
-                                .trim());
-
+                            }FocusScope.of(context).unfocus();
                             context
                                 .read<StudentBloc>()
                                 .add(StudentEvent.addStudent(

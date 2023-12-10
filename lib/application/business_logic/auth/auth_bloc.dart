@@ -29,7 +29,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   Future<void> getOtp(GetOtp event, Emitter<AuthState> emit) async {
-    print('get otp bloc');
     emit(state.copyWith(hasError: false, isLoading: true));
     final result = await authService.sendOtp(event.phoneModel);
     result.fold(
@@ -47,11 +46,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   Future<void> verifyOtp(VerifyOtp event, Emitter<AuthState> emit) async {
-    print('verify otp bloc');
     emit(state.copyWith(hasError: false, isLoading: true));
     final result =
         await authService.verifyOtp(state.otpVerificationId!, event.otpModel);
-    print('back to block');
     result.fold(
       (failure) => emit(state.copyWith(
           hasError: true,
@@ -66,7 +63,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   Future<void> signIn(SignIn event, Emitter<AuthState> emit) async {
-    print('sign in email password bloc');
     emit(
       state.copyWith(hasError: false, isLoading: true),
     );
@@ -84,7 +80,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   Future<void> signUp(SignUP event, Emitter<AuthState> emit) async {
-    print('sign up email and passwod bloc');
     emit(state.copyWith(hasError: false, isLoading: true));
     final result = await authService.signUpWithEmail(signUp: event.authModel);
     result.fold(
@@ -100,7 +95,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   Future<void> googleSignIn(GoogleSignIn event, Emitter<AuthState> emit) async {
-    print('google sign in bloc');
     emit(state.copyWith(hasError: false, isLoading: true));
     final result = await authService.signInWithGoogle();
     result.fold(
@@ -111,14 +105,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       (success) => emit(
         state.copyWith(
             signInSuccess: true,
-            isLoading: false,
+            isLoading: false,signUpSuccess: true,
             message: 'user authentiacated successully'),
       ),
     );
   }
 
   Future<void> signOut(SignOut event, Emitter<AuthState> emit) async {
-    print('sign out bloc');
     emit(state.copyWith(hasError: false, isLoading: true));
     final result = await authService.signOut();
     result.fold(

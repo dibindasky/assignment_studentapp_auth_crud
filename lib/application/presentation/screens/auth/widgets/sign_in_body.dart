@@ -72,6 +72,7 @@ class SignInBody extends StatelessWidget {
                   child: ElevatedButton(
                       onPressed: () {
                         if (signInKey.currentState!.validate()) {
+                          FocusScope.of(context).unfocus();
                           context.read<AuthBloc>().add(AuthEvent.signIn(
                               authModel: AuthModel(
                                   email: context
@@ -91,8 +92,11 @@ class SignInBody extends StatelessWidget {
                 );
               },
             ),
-          ),
-          kHeight10,
+          ),          
+         Text('Or sign-in with',style: abel(),),kHeight20,
+          const GoogleAndPhone(),
+          kHeight50,
+          const Divider(),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -110,9 +114,6 @@ class SignInBody extends StatelessWidget {
                   )),
             ],
           ),
-          const Divider(),
-          kHeight50,
-          const GoogleAndPhone()
         ],
       ),
     );

@@ -67,6 +67,7 @@ class SignUpBody extends StatelessWidget {
                   child: ElevatedButton(
                       onPressed: () {
                         if (signupKey.currentState!.validate()) {
+                          FocusScope.of(context).unfocus();
                           context.read<AuthBloc>().add(AuthEvent.signUP(
                               authModel: AuthModel(
                                   email: context
@@ -86,8 +87,12 @@ class SignUpBody extends StatelessWidget {
                 );
               },
             ),
-          ),
-          kHeight10,
+          ),kHeight20,
+          Text('Or Sign-Up with',style: abel(),),
+          kHeight30,
+          const GoogleAndPhone(),
+          kHeight50,
+          const Divider(),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -105,9 +110,6 @@ class SignUpBody extends StatelessWidget {
                   )),
             ],
           ),
-          const Divider(),
-          kHeight50,
-          const GoogleAndPhone()
         ],
       ),
     );

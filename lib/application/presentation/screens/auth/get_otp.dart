@@ -15,13 +15,17 @@ class ScreenOtp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('get otp -----------1');
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.all(sWidth * 0.1),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(
+              height: sHeight * 0.10,
+              child: Image.asset('assets/images/mobile.png'),
+            ),
+            kHeight50,
             Form(
               key: phoneKey,
               child: CustomTextFormField(
@@ -45,6 +49,7 @@ class ScreenOtp extends StatelessWidget {
                 return ElevatedButton(
                   onPressed: () {
                     if (phoneKey.currentState!.validate()) {
+                      FocusScope.of(context).unfocus();
                       context.read<AuthBloc>().add(AuthEvent.getOtp(
                           phoneModel: PhoneModel(
                               phone: context
