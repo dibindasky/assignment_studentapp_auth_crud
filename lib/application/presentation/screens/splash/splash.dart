@@ -1,5 +1,5 @@
 import 'package:assignment_wandoor_kayla/application/presentation/screens/auth/sign_in.dart';
-import 'package:assignment_wandoor_kayla/application/presentation/screens/home/home.dart';
+import 'package:assignment_wandoor_kayla/application/presentation/screens/student/home.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/utils/constants/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

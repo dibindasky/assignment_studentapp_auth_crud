@@ -1,6 +1,7 @@
 import 'package:assignment_wandoor_kayla/application/business_logic/auth/auth_bloc.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/routes/route_generator.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/routes/routes.dart';
+import 'package:assignment_wandoor_kayla/data/local_db/student_curd.dart';
 import 'package:assignment_wandoor_kayla/data/services/auth/auth.dart';
 import 'package:assignment_wandoor_kayla/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -12,6 +13,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await StudentDb().initialiseDatabase();
   runApp(const AppRoot());
 }
 

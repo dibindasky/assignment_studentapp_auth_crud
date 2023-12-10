@@ -1,9 +1,9 @@
-import 'package:assignment_wandoor_kayla/application/presentation/screens/add_student/add_student.dart';
+import 'package:assignment_wandoor_kayla/application/presentation/screens/student/add_student.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/screens/auth/get_otp.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/screens/auth/sign_in.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/screens/auth/sign_up.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/screens/auth/verify_otp.dart';
-import 'package:assignment_wandoor_kayla/application/presentation/screens/home/home.dart';
+import 'package:assignment_wandoor_kayla/application/presentation/screens/student/home.dart';
 import 'package:assignment_wandoor_kayla/application/presentation/screens/splash/splash.dart';
 import 'package:flutter/material.dart';
 
